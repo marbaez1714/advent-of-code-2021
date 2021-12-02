@@ -1,6 +1,13 @@
 import java.io.File
 import java.io.InputStream
 
+fun main(){
+    val inputList = getInputList("input.txt")
+    val windowList = getWindowList(inputList)
+    val increaseCount = getIncreaseCount(windowList)
+    println("Increase Count: $increaseCount")
+}
+
 fun getInputList(file:String): List<Int>{
     // Gather data from input.txt
     val inputStream: InputStream = File(file).inputStream()
@@ -31,14 +38,13 @@ fun getWindowList(inputList:List<Int>): List<Int>{
 
 fun getIncreaseCount(windowList:List<Int>): Int{
     // Initalize previousDepth and increaseCount
-    var previousDepth: Int = 0
+    var previousDepth: Int = windowList[0]
     var increaseCount: Int = 0
 
     // Loop through each value in the list
     for( (index,value) in windowList.withIndex() ){
         // If it is the first index, set the value and skip
         if(index == 0){
-            previousDepth = value
             continue
         }
         // if the value is increased, increment increaseCount
@@ -51,12 +57,4 @@ fun getIncreaseCount(windowList:List<Int>): Int{
 
     // Return increaseCount
     return increaseCount
-}
-
-
-fun main(){
-    val inputList = getInputList("input.txt")
-    val windowList = getWindowList(inputList)
-    val increaseCount = getIncreaseCount(windowList)
-    println("Increase Count: $increaseCount")
 }
