@@ -1,8 +1,8 @@
 #!/bin/bash
 runChallenge(){
     echo -e "\n~~~~~ Welcome to Mario's Advent of Code ~~~~~~~~~~~~~~~~~\n"
-    read -p "Day: " day
-    read -p "Part: " part
+    read -p "Challenge Day:  " day
+    read -p "Challenge Part: " part
     echo -e "\n~~~~~ Compiling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     cd ./day-$day
     echo -e "\nCompiling day-$day-part-$part.kt to .jar\n"
