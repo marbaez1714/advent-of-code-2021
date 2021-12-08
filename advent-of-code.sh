@@ -1,15 +1,16 @@
 #!/bin/bash
 runChallenge(){
     echo -e "\n~~~~~ Welcome to Mario's Advent of Code ~~~~~~~~~~~~~~~~~\n"
-    read -p "Challenge Day:  " day
-    read -p "Challenge Part: " part
+    echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
+    echo " * * * * * * * * * * * * * * * * * * * * * * * * * * * * "
+    echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
     echo -e "\n~~~~~ Compiling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    cd ./day-$day
-    echo -e "\nCompiling day-$day-part-$part.kt to .jar\n"
-    kotlinc day-$day-part-$part.kt -include-runtime -d day-$day-part-$part.jar &
+    cd ./day-$1
+    echo -e "\nCompiling day-$1-part-$2.kt to .jar\n"
+    kotlinc day-$1-part-$2.kt -include-runtime -d day-$1-part-$2.jar &
     spinner $!
     echo -e "\033[2K\r~~~~~ Output ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-    java -jar day-$day-part-$part.jar
+    java -jar day-$1-part-$2.jar
     echo -e "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 }
 
@@ -36,4 +37,4 @@ spinner(){
     done
 }
 
-runChallenge
+runChallenge $1 $2
