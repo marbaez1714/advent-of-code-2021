@@ -1,6 +1,5 @@
 import java.io.File
 import java.io.InputStream
-import java.util.Collections
 
 fun main(){
     val inputList = getInputList("input.txt")
